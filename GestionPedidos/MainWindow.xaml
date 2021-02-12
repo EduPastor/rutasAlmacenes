@@ -1,0 +1,71 @@
+﻿<Window x:Class="GestionPedidos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionPedidos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="850" Width="1500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="341*"/>
+            <ColumnDefinition Width="1034*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Ver pantalla pruebas" Grid.Column="2" HorizontalAlignment="Left" Margin="885,742,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click" Height="58"/>
+        <Label Content="Fecha seleccionada para las pruebas: 03/01/2021" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="Id Pedidos &#xD;&#xA;para esta fecha" HorizontalAlignment="Left" Margin="40,61,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="listaPedidos0301"  HorizontalAlignment="Left" Height="141" Margin="36,124,0,0" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" SelectionChanged="listaPedidos0301_SelectionChanged"/>
+        <Label Content="Productos en el pedido seleccionado" HorizontalAlignment="Left" Margin="145,68,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="listaProductosPedidos0301"  HorizontalAlignment="Left" Height="271" Margin="117,124,0,0" VerticalAlignment="Top" Width="431" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Ruta sin optmizar" HorizontalAlignment="Left" Margin="298,472,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="204" Grid.Column="2"/>
+        <TextBlock x:Name="TextRutaSinOptmizar" Text="0" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Margin="502,453,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="507" Grid.Column="2" Height="70"/>
+        <Label Content="Ruta optimizada" HorizontalAlignment="Left" Margin="298,628,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="204" Grid.Column="2" Height="51"/>
+        <TextBlock x:Name="TextRutaOptimizada" Text="0" TextWrapping="WrapWithOverflow" HorizontalAlignment="Left" Margin="502,608,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="507" Grid.Column="2" Height="78"/>
+        <Label Content="Cajas si consideramos&#xA; 20 artículos por caja" HorizontalAlignment="Left" Margin="570,55,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="194" Grid.Column="2" Height="65"/>
+        <Label Content="Carros sin algoritmo&#xA;optimización" HorizontalAlignment="Left" Margin="570,324,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="198" Grid.Column="2"/>
+        <Label x:Name="labelCajasAmbienteCompleto" Content="0" HorizontalAlignment="Left" Margin="638,120,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="28" Grid.Column="2"/>
+        <Label x:Name="labelCajasRefrigeradoCompleto" Content="0" HorizontalAlignment="Left" Margin="638,164,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="28" Grid.Column="2"/>
+        <Label x:Name="labelCajasCongeladoCompleto" Content="0" HorizontalAlignment="Left" Margin="638,205,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="28" Grid.Column="2"/>
+        <Label x:Name="labelCajasVolumiosoCompleto" Content="0" HorizontalAlignment="Left" Margin="638,256,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="28" Grid.Column="2"/>
+        <Label x:Name="labelCarrosCompleto" Content="0" HorizontalAlignment="Left" Margin="638,387,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="38" Grid.Column="2"/>
+        <Label Content="Productos Ambiente" HorizontalAlignment="Left" Margin="324,120,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="198" Grid.Column="2"/>
+        <Label x:Name="labelProductosPedidoAmbienteCompleto" Content="0" HorizontalAlignment="Left" Margin="540,120,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="42" Grid.Column="2"/>
+        <Label Content="Productos Refrigerado" HorizontalAlignment="Left" Margin="324,166,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="207" Grid.Column="2"/>
+        <Label x:Name="labelProductosPedidoRefrigeradoCompleto" Content="0" HorizontalAlignment="Left" Margin="540,164,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="42" Grid.Column="2"/>
+        <Label Content="Productos Congelado" HorizontalAlignment="Left" Margin="324,211,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="198" Grid.Column="2"/>
+        <Label x:Name="labelProductosPedidoCongeladoCompleto" Content="0" HorizontalAlignment="Left" Margin="540,205,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="42" Grid.Column="2"/>
+        <Label Content="Productos Voluminoso" HorizontalAlignment="Left" Margin="324,256,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="204" Grid.Column="2"/>
+        <Label x:Name="labelProductosPedidoVoluminosoCompleto" Content="0" HorizontalAlignment="Left" Margin="540,256,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="42" Grid.Column="2"/>
+        <Label Content="Cajas tras algoritmo" HorizontalAlignment="Left" Margin="796,80,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="194" Grid.Column="2" Height="35"/>
+        <Label x:Name="labelCajasAlgoritmoAmbienteCompleto" Content="0" HorizontalAlignment="Left" Margin="864,120,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="26" Grid.Column="2"/>
+        <Label x:Name="labelCajasAlgoritmoRefrigeradoCompleto" Content="0" HorizontalAlignment="Left" Margin="864,164,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="26" Grid.Column="2"/>
+        <Label x:Name="labelCajasAlgoritmoCongeladoCompleto" Content="0" HorizontalAlignment="Left" Margin="864,205,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="26" Grid.Column="2"/>
+        <Label x:Name="labelCajasAlgoritmoVoluminosoCompleto" Content="0" HorizontalAlignment="Left" Margin="864,256,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="26" Grid.Column="2"/>
+        <Label Content="Carros tras algoritmo" HorizontalAlignment="Left" Margin="794,324,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="200" Grid.Column="2"/>
+        <Label x:Name="labelCarrosAlgoritmoCompleto" Content="0" HorizontalAlignment="Left" Margin="864,387,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="36" Grid.Column="2"/>
+        <Label Content="Resultados para todos los pedidos del día 03/01/2021" HorizontalAlignment="Left" Margin="346,16,-142,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="830" Grid.Column="2"/>
+        <Label Content="Cajas si consideramos&#xA; 20 artículos por caja" HorizontalAlignment="Left" Margin="155,407,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="194" Grid.Column="1" Height="65" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelCajasAmbiente" Content="0" HorizontalAlignment="Left" Margin="232,472,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="59" Grid.Column="1"/>
+        <Label x:Name="labelCajasRefrigerado" Content="0" HorizontalAlignment="Left" Margin="232,516,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="77" Grid.Column="1"/>
+        <Label x:Name="labelCajasCongelado" Content="0" HorizontalAlignment="Left" Margin="232,557,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="59" Grid.Column="1"/>
+        <Label x:Name="labelCajasVolumioso" Content="0" HorizontalAlignment="Left" Margin="232,608,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="59" Grid.Column="1"/>
+        <Label Content="Productos Ambiente" HorizontalAlignment="Left" Margin="22,472,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="199" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelProductosPedidoAmbiente" Content="0" HorizontalAlignment="Left" Margin="125,472,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="43" Grid.Column="1"/>
+        <Label Content="Productos Refrigerado" HorizontalAlignment="Left" Margin="22,516,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="204" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelProductosPedidoRefrigerado" Content="0" HorizontalAlignment="Left" Margin="125,516,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="43" Grid.Column="1"/>
+        <Label Content="Productos Congelado" HorizontalAlignment="Left" Margin="22,557,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="199" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelProductosPedidoCongelado" Content="0" HorizontalAlignment="Left" Margin="125,557,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="43" Grid.Column="1"/>
+        <Label Content="Productos Voluminoso" HorizontalAlignment="Left" Margin="22,608,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="204" Grid.ColumnSpan="2"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="22,652,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="204" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelProductosPedidoVoluminoso" Content="0" HorizontalAlignment="Left" Margin="125,608,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="43" Grid.Column="1"/>
+        <Label Content="Cajas tras algoritmo" HorizontalAlignment="Left" Margin="32,432,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="194" Grid.Column="2" Height="35"/>
+        <Label x:Name="labelCajasAlgoritmoAmbiente" Content="0" HorizontalAlignment="Left" Margin="100,472,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="27" Grid.Column="2"/>
+        <Label x:Name="labelCajasAlgoritmoRefrigerado" Content="0" HorizontalAlignment="Left" Margin="100,516,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="27" Grid.Column="2"/>
+        <Label x:Name="labelCajasAlgoritmoCongelado" Content="0" HorizontalAlignment="Left" Margin="100,557,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="27" Grid.Column="2"/>
+        <Label x:Name="labelCajasAlgoritmoVoluminoso" Content="0" HorizontalAlignment="Left" Margin="100,608,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="27" Grid.Column="2"/>
+        <Label x:Name="labelProductosPedidoTotal" Content="0" HorizontalAlignment="Left" Margin="125,652,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="43" Grid.Column="1"/>
+        <Label x:Name="labelCajasTotal" Content="0" HorizontalAlignment="Left" Margin="232,652,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="59" Grid.Column="1"/>
+        <Label x:Name="labelCajasAlgoritmoTotal" Content="0" HorizontalAlignment="Left" Margin="100,652,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="27" Grid.Column="2"/>
+    </Grid>
+</Window>
