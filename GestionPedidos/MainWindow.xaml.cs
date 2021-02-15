@@ -24,10 +24,10 @@ namespace GestionPedidos
     public partial class MainWindow : Window
     {
         SqlConnection conexionAlmacenSql;
-        string consultaIdPedidosFecha0301 = "SELECT (id_pedido) FROM pedido WHERE fecha ='2021-01-03'";
+        string consultaIdPedidosFecha0301 = "SELECT (id_pedido) FROM pedido WHERE fecha ='2021-01-06'";
         string consultaProductosPedidosId = "SELECT CONCAT (EAN, ' - ', categoria_producto, ' - ', nombre, ' - ', EAN_linea_pedido, ' - ', id_pedido_linea_pedido, ' - ', cantidad ) AS PEDIDOSCOMPLETOS FROM producto A inner join linea_pedido LP ON A.EAN = LP.EAN_linea_pedido WHERE LP.id_pedido_linea_pedido = @PedidoId";
         string consultaTotalElementosPedido = "SELECT SUM(cantidad) FROM producto P inner join linea_pedido LP ON P.EAN = LP.EAN_linea_pedido WHERE LP.id_pedido_linea_pedido = @PedidoId AND P.categoria_producto = @PedidoTipo";
-        string consultaPedidosFechaQuery = "SELECT id_pedido FROM pedido WHERE fecha = '2021-01-03'";
+        string consultaPedidosFechaQuery = "SELECT id_pedido FROM pedido WHERE fecha = '2021-01-06'";
 
         public MainWindow()
         {
