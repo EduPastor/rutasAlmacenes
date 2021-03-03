@@ -5,6 +5,10 @@ Entre los ficheros disponibles se encuentra la memoria del TFG que dio origen a 
 
 Se incluye un export de la BBDD para facilitar las pruebas.
 
+Para trabajar con el proyecto, se recomienda uar el software Visual Studio Community. Primero abrimos la solución GestionPedidos.sln y posteriormente agregamos el proyecto existente CromulentBisgetti.ContainerPacking.csproj. Con estos módulos tenemos todas las funcionalidades descritas en el proyecto funcionando.
+
+Una vez tenemos las soluciones generadas, necesitamos adaptar la BBDD. Un Script con las tablas y la información de la BBDD se puede encontrar en la raíz de este proyecto. En los ficheros de configuración del proyecto se encuentra toda la información relativa ala configuración de la BBDD y su conectividad con la solución principal. No obstante, si se desea personalizar los parámetros de configuración de la BBDD hay que tenerlo en cuenta para modificar las cadenas de conexión en GestionPedidos.Properties.Settings.almacenConnectionString.
+
 La parte de algoritmia extraída de la web www.roodbergen.com/warehouse/frames.htm?demo no ha sido incluida debido a que no se encuentra la licencia de uso en la web citada. No obstante  se detalla como el usuario puede incluirla de manera sencilla para completar todas las funcionalidades mencionadas en la memoria.
 El software que encontramos en dicha página esta programado en javascript (versión 1.2 -- https://developer.mozilla.org/es/docs/Web/JavaScript/Novedades_en_JavaScript/1.2  -- según el propio autor). Para ejecutar código .js en un programa basado en WPF necesitamos crear un documento HTML. En dicho documento inyectaremos el siguiente código html:
 <html>
